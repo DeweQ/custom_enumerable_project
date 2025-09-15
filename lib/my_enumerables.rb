@@ -1,5 +1,13 @@
+# Custom enumerable methods
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    for i in 0...size do
+      # require "pry-byebug"; binding.pry
+      yield(self[i], i)
+    end
+    self
+  end
 end
 
 # You will first have to define my_each
