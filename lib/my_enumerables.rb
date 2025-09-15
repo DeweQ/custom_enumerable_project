@@ -17,6 +17,14 @@ module Enumerable
     my_each { |element| return true if yield element }
     false
   end
+
+  def my_count
+    return size unless block_given?
+
+    counter = 0
+    my_each { |element| counter += 1 if yield element }
+    counter
+  end
 end
 
 # You will first have to define my_each
