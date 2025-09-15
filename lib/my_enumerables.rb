@@ -43,6 +43,18 @@ module Enumerable
     my_each { |element| new_value << yield(element) }
     new_value
   end
+
+  def my_none?(&block)
+    return false if my_any?(&block)
+
+    true
+  end
+
+  def my_select
+    result = []
+    my_each { |element| result << element if yield element }
+    result
+  end
 end
 
 # You will first have to define my_each
