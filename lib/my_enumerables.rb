@@ -25,6 +25,18 @@ module Enumerable
     my_each { |element| counter += 1 if yield element }
     counter
   end
+
+  def my_inject(result = nil)
+    current = 0
+    if result.nil?
+      result = self[current]
+      current += 1
+    end
+    for i in current...size do
+      result = yield(result, self[i])
+    end
+    result
+  end
 end
 
 # You will first have to define my_each
