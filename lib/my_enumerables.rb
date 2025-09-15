@@ -37,6 +37,12 @@ module Enumerable
     end
     result
   end
+
+  def my_map
+    new_value = []
+    my_each { |element| new_value << yield(element) }
+    new_value
+  end
 end
 
 # You will first have to define my_each
