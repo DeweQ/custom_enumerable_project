@@ -3,10 +3,14 @@ module Enumerable
   # Your code goes here
   def my_each_with_index
     for i in 0...size do
-      # require "pry-byebug"; binding.pry
       yield(self[i], i)
     end
     self
+  end
+
+  def my_all?
+    my_each { |element| return false unless yield element }
+    true
   end
 end
 
